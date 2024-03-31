@@ -1,0 +1,77 @@
+import requests
+import json
+import os
+
+def send(webhook, message, username):
+    data = {"content":message,"username":username}
+    headers = {"Content-Type": "application/json"}
+    response = requests.post(webhook, data=json.dumps(data), headers=headers)
+    
+    if response.status_code == 204:
+        print("\nMessage sent successfully!")
+    else:
+        print(f"\nThe message failed to send. Error code: {response.status_code}")
+
+def start():
+    os.system("cls")
+    print( 
+    "██╗    ██╗███████╗██████╗ ██╗  ██╗ ██████╗  ██████╗ ██╗  ██╗    ███████╗███████╗███╗   ██╗██████╗ ███████╗██████╗\n"
+    "██║    ██║██╔════╝██╔══██╗██║  ██║██╔═══██╗██╔═══██╗██║ ██╔╝    ██╔════╝██╔════╝████╗  ██║██╔══██╗██╔════╝██╔══██╗\n"
+    "██║ █╗ ██║█████╗  ██████╔╝███████║██║   ██║██║   ██║█████╔╝     ███████╗█████╗  ██╔██╗ ██║██║  ██║█████╗  ██████╔╝\n"
+    "██║███╗██║██╔══╝  ██╔══██╗██╔══██║██║   ██║██║   ██║██╔═██╗     ╚════██║██╔══╝  ██║╚██╗██║██║  ██║██╔══╝  ██╔══██╗\n"
+    "╚███╔███╔╝███████╗██████╔╝██║  ██║╚██████╔╝╚██████╔╝██║  ██╗    ███████║███████╗██║ ╚████║██████╔╝███████╗██║  ██║\n"
+    " ╚══╝╚══╝ ╚══════╝╚═════╝ ╚═╝  ╚═╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝    ╚══════╝╚══════╝╚═╝  ╚═══╝╚═════╝ ╚══════╝╚═╝  ╚═╝\n"
+    )
+
+    print("")
+    print(" ____________________")
+    print("|                    |")
+    print("|  this was made by  |")
+    print("|  3cxos on roblox   |")
+    print("|  @ycxo on discord  |")
+    print("|  guns.lol/cxo      |")
+    print("|____________________|\n")
+
+    print("")
+    print(" ______________________________________________________________")
+    print("|                                                              |")
+    print("| 1 - sends one message                                        |")
+    print("| 2 - spams the same message over and over                     |")
+    print("| 3 - the same as n1 but skips having to re enter the webhook  |")
+    print("|______________________________________________________________|\n")
+
+start()
+
+while True:
+
+    x = input("Choice: ")
+
+    print("")
+
+    a = input("Please enter the webhook URL: ")
+
+    if x == "1":
+        print("")
+        b = input("Message: ")
+        print("")
+        y = input("Username: ")
+        send(a,b,y)
+        start()
+
+    elif x == "2":
+        print("")
+        c = input("Message: ")
+        print("")
+        z = input("Username: ")
+        while True:
+            for i in range(100):
+                send(a,c,z)
+
+    elif x == "3":
+        print("")
+        while True:
+            e = input("Message: ")
+            print("")
+            o = input("Username: ")
+            send(a,e,o)
+            print("")
